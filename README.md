@@ -9,7 +9,7 @@ The scope of this project is to create a command line application that dynamical
 
 
 ## Instructions
-To use this project you will need to clone this repository and then open it in your text editor of choice. You will also need access to a CLI. This projected was created using VSCode and then run in the integrated terminal. Assuming that Node.js is already installed, you will need to run ```npm install``` and then you can run ```node index.js``` to launch the application and proceed through the prompts.
+To use this project you will need to clone this repository and then open it in your text editor of choice. You will also need access to a CLI. This projected was created using VSCode and then run in the integrated terminal. Assuming that Node.js is already installed, you will need to run ```npm install``` and then you can run ```node app.js``` to launch the application and proceed through the prompts.
 
 ## Usage
 Here is a video walkthrough of the project.
