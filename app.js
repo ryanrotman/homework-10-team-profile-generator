@@ -14,6 +14,85 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+const newEmployee = [];
+
+function employeePrompt() {
+    return inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your name?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is your email address?",
+            name: "email"
+        },
+        {
+            type: "list",
+            message: "What is your role?",
+            name: "role",
+            choices: [
+                "Manager",
+                "Engineer",
+                "Intern"
+            ]
+        },
+    ]);
+};
+
+function managerPrompt() {
+    return inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your office number?",
+            name: "officeNumber"
+        }
+    ]);
+};
+
+function engineerPrompt() {
+    return inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your GitHub username?",
+            name: "gitHub"
+        }
+    ]);
+};
+
+function internPrompt() {
+    return inquirer.prompt([
+        {
+            type: "input",
+            message: "What school are you studying at?",
+            name: "school"
+        }
+    ]);
+};
+
+employeePrompt()
+    .then((responses) => {
+        console.log(`The employee's role is: ${responses.role}`)
+        if (responses.role === "Manager") {
+            managerPrompt();
+        } else if (responses.role === "Engineer") {
+            engineerPrompt();
+        } else if (responses.role === "Intern") {
+            internPrompt();
+        };
+        // FIXME: tried a switch statement but it just showed all three additional questions at once
+        // let role = responses.role;
+        // switch(role) {
+        //     case "Manager":
+        //         managerPrompt();
+        //     case "Engineer":
+        //         engineerPrompt();
+        //     case "Intern":
+        //         internPrompt();
+        // };
+    });
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
