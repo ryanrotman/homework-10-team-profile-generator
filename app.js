@@ -25,6 +25,11 @@ function employeePrompt() {
         },
         {
             type: "input",
+            message: "What is your ID number?",
+            name: "id"
+        },
+        {
+            type: "input",
             message: "What is your email address?",
             name: "email"
         },
