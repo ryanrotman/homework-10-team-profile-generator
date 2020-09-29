@@ -72,7 +72,6 @@ function employeePrompt() {
                     responses.name,
                     responses.id,
                     responses.email,
-                    responses.role,
                     responses.officeNumber
                 )
             )
@@ -83,7 +82,6 @@ function employeePrompt() {
                     responses.name,
                     responses.id,
                     responses.email,
-                    responses.role,
                     responses.gitHub
                 )
             )
@@ -94,7 +92,6 @@ function employeePrompt() {
                     response.name,
                     responses.id,
                     responses.email,
-                    responses.role,
                     responses.school
                 )
             )
