@@ -9,12 +9,13 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { report } = require("process");
 
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-const newEmployee = [];
+const employeeList = [];
 
 function employeePrompt() {
     return inquirer.prompt([
@@ -43,60 +44,63 @@ function employeePrompt() {
                 "Intern"
             ]
         },
-    ]);
-};
-
-function managerPrompt() {
-    return inquirer.prompt([
         {
             type: "input",
             message: "What is your office number?",
-            name: "officeNumber"
-        }
-    ]);
-};
-
-function engineerPrompt() {
-    return inquirer.prompt([
+            name: "officeNumber",
+            when: (responses) => responses.role === "Manager"
+        },
         {
             type: "input",
             message: "What is your GitHub username?",
-            name: "gitHub"
-        }
-    ]);
-};
-
-function internPrompt() {
-    return inquirer.prompt([
+            name: "gitHub",
+            when: (responses) => responses.role === "Engineer"
+        },
         {
             type: "input",
             message: "What school are you studying at?",
-            name: "school"
+            name: "school",
+            when: (responses) => responses.role === "Intern"
         }
-    ]);
+    ])
+    .then((responses) => {
+        console.log(responses);
+        if (responses.role = "Manager") {
+            employeeList.push(
+                new Manager(
+                    responses.name,
+                    responses.id,
+                    responses.email,
+                    responses.role,
+                    responses.officeNumber
+                )
+            )
+        } else if (responses.role === "Engineer") {
+            employeeList.push(
+                new Engineer(
+                    responses.name,
+                    responses.id,
+                    responses.email,
+                    responses.role,
+                    responses.gitHub
+                )
+            )
+        } else if (responses.role === "Intern") {
+            employeeList.push(
+                new Intern(
+                    response.name,
+                    responses.id,
+                    responses.email,
+                    responses.role,
+                    responses.school
+                )
+            )
+        }
+    })
+    // .then(console.log("Employees: " + newEmployee))
 };
 
-employeePrompt()
-    .then((responses) => {
-        console.log(`The employee's role is: ${responses.role}`)
-        if (responses.role === "Manager") {
-            managerPrompt();
-        } else if (responses.role === "Engineer") {
-            engineerPrompt();
-        } else if (responses.role === "Intern") {
-            internPrompt();
-        };
-        // FIXME: tried a switch statement but it just showed all three additional questions at once
-        // let role = responses.role;
-        // switch(role) {
-        //     case "Manager":
-        //         managerPrompt();
-        //     case "Engineer":
-        //         engineerPrompt();
-        //     case "Intern":
-        //         internPrompt();
-        // };
-    });
+employeePrompt();
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
