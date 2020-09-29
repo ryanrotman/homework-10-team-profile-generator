@@ -10,6 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 const { report } = require("process");
+const { ADDRGETNETWORKPARAMS } = require("dns");
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -75,6 +76,7 @@ function employeePrompt() {
                     responses.officeNumber
                 )
             )
+            console.log("New Manager successfully added to the team.")
         } else if (responses.role === "Engineer") {
             employeeList.push(
                 new Engineer(
@@ -85,6 +87,7 @@ function employeePrompt() {
                     responses.gitHub
                 )
             )
+            console.log("New Engineer successfully added to the team.")
         } else if (responses.role === "Intern") {
             employeeList.push(
                 new Intern(
@@ -95,9 +98,27 @@ function employeePrompt() {
                     responses.school
                 )
             )
+            console.log("New Intern successfully added to the team.")
         }
+        console.log(employeeList);
+        addNewEmployee();
     })
 };
+
+function addNewEmployee() {
+    return inquirer.prompt([
+        {
+            type: "confirm",
+            message: "Do you want to add a new employee?",
+            name: "addNewEmployee"
+        }
+    ])
+    .then((confirm) => {
+        if (confirm.addNewEmployee) {
+            employeePrompt();
+        }
+    })
+}
 
 employeePrompt();
 
