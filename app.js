@@ -65,7 +65,7 @@ function employeePrompt() {
     ])
     .then((responses) => {
         console.log(responses);
-        if (responses.role = "Manager") {
+        if (responses.role === "Manager") {
             employeeList.push(
                 new Manager(
                     responses.name,
@@ -97,7 +97,6 @@ function employeePrompt() {
             )
         }
     })
-    // .then(console.log("Employees: " + newEmployee))
 };
 
 employeePrompt();
