@@ -87,7 +87,7 @@ function employeePrompt() {
         } else if (responses.role === "Intern") {
             employeeList.push(
                 new Intern(
-                    response.name,
+                    responses.name,
                     responses.id,
                     responses.email,
                     responses.school
