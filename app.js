@@ -112,9 +112,8 @@ function addNewEmployee() {
         if (confirm.addNewEmployee) {
             employeePrompt();
         } else {
-            render(employeeList);
             fs.existsSync(OUTPUT_DIR) || fs.mkdir(OUTPUT_DIR);
-            fs.writeFileSync(outputPath);
+            fs.writeFileSync(outputPath, render(employeeList));
         }
     })
 }
