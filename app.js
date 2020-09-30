@@ -5,12 +5,10 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
+const OUTPUT_DIR = path.resolve(__dirname, "Output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-const { report } = require("process");
-const { ADDRGETNETWORKPARAMS } = require("dns");
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -113,6 +111,10 @@ function addNewEmployee() {
     .then((confirm) => {
         if (confirm.addNewEmployee) {
             employeePrompt();
+        } else {
+            render(employeeList);
+            fs.existsSync(OUTPUT_DIR) || fs.mkdir(OUTPUT_DIR);
+            fs.writeFileSync(outputPath);
         }
     })
 }
