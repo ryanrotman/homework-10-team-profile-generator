@@ -16,8 +16,8 @@ To use this project you will need to clone this repository and then open it in y
 [Here is a video walkthrough of the project.](https://drive.google.com/file/d/1w39yOM-MZdt1zuDuOsAq00sdObA8Fi7v/view)
 
 ## Page Screenshots
-![ReadMe_Screenshot_HTMLpageTop](./Assets/Images/ReadMe_Screenshot_HTMLpageTop.png)
-![ReadMe_Screenshot_HTMLpageBottom](./Assets/Images/ReadMe_Screenshot_HTMLpageBottom.png)
+![ReadMe_Screenshot_HTMLpageTop](./Assets/Images/ReadMe_ScreenShot_HTMLpageTop.png)
+![ReadMe_Screenshot_HTMLpageBottom](./Assets/Images/ReadMe_ScreenShot_HTMLpageBottom.png)
 
 ## Contributing
 Any and all collaboration is welcome so if you have any suggestions or thoughts for new features, please send me an email at ryan.rotman@gmail.com.
