@@ -2,3 +2,23 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.team-heading {
+    background-color: #7c4a24;
+    color: whitesmoke;
+}
+
+.card-header-manager {
+    background-color: #a07945;
+    color: whitesmoke;
+}
+
+.card-header-engineer {
+    background-color: #c2a97d;
+    color: whitesmoke;
+}
+
+.card-header-intern {
+    background-color: #d1ccc4;
+    color: whitesmoke;
+}
