@@ -1,3 +1,8 @@
+body {
+    background-color: #d5dadd;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .team-area {
     margin-top: 20px;
     margin-bottom: 20px;
